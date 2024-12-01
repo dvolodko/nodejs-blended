@@ -8,7 +8,10 @@
     "generate": "node src/scripts/generateProducts.js",
     "getProductsByMinPrice": "node src/scripts/getProductsByMinPrice.js",
     "getModifyProducts": "node src/scripts/modifyProducts.js",
-    "getTotalPrice": "node src/scripts/getTotalPrice.js"
+    "getTotalPrice": "node src/scripts/getTotalPrice.js",
+    "getProductsCategories": "node src/scripts/getProductsCategories.js",
+    "createProductsFiles": "node src/scripts/createProductsFiles.js",
+    "groupProductsByCategory": "node src/scripts/groupProductsByCategory.js"
   },
   "keywords": [],
   "author": "Denys Volodko <babyleejane@gmail.com>",
