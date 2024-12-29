@@ -4,6 +4,7 @@ import createHttpError from 'http-errors';
 import {
   createSession,
   createUser,
+  deleteSession,
   deleteSessionByUserId,
   findUserByEmail,
 } from '../services/auth.js';
@@ -54,4 +55,15 @@ export const loginUserController = async (req, res) => {
       accessToken: session.accessToken,
     },
   });
+};
+
+export const loguotUserById = async (req, res) => {
+  const sessionId = req.cookies.sessionId;
+  const refreshToken = req.cookies.refreshToken;
+
+  await deleteSession(sessionId, refreshToken);
+
+  res.clearCookie('sessionId');
+  res.clearCookie('refreshToken');
+  res.status(204).end();
 };

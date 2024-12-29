@@ -7,17 +7,22 @@ import {
   patchProductController,
 } from '../controllers/products.js';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
+import { checkToken } from '../middlewares/checkToken.js';
 
 const router = Router();
 
-router.get('/products', ctrlWrapper(getAllProductsController));
+router.get('/products', checkToken, ctrlWrapper(getAllProductsController));
 
-router.get('/products/:id', ctrlWrapper(getProductByIdController));
+router.get('/products/:id', checkToken, ctrlWrapper(getProductByIdController));
 
-router.post('/products', ctrlWrapper(createProductsController));
+router.post('/products', checkToken, ctrlWrapper(createProductsController));
 
-router.delete('/products/:id', ctrlWrapper(deleteProductController));
+router.delete(
+  '/products/:id',
+  checkToken,
+  ctrlWrapper(deleteProductController),
+);
 
-router.patch('/products/:id', ctrlWrapper(patchProductController));
+router.patch('/products/:id', checkToken, ctrlWrapper(patchProductController));
 
 export default router;

@@ -26,3 +26,11 @@ export const createSession = async (userId) => {
     userId,
   });
 };
+
+export const findSessionByToken = (token) =>
+  SessionCollection.findOne({ accessToken: token });
+
+export const findUserById = (userId) => UsersCollection.findById(userId);
+
+export const deleteSession = (sessionId, refreshToken) =>
+  SessionCollection.deleteOne({ _id: sessionId, refreshToken });
